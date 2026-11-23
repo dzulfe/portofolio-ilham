@@ -1,0 +1,7 @@
+/* Ganti warna & font di sini saja */
+:root{
+  --bg:#777a7d; --paper:#f6f3eb; --ink:#161616; --muted:#686866;
+  --orange:#7b202a; --mint:#bfc9ad; --butter:#f2c64d; --sky:#aebfd1; --pink:#c98a92;
+  --f-display:'Pixelify Sans',sans-serif; --f-body:'Instrument Sans',sans-serif;
+  --line:2px solid var(--ink); --hard:5px 5px 0 var(--ink);
+}

@@ -1,0 +1,25 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--paper);color:var(--ink);font:16px/1.6 var(--f-body);overflow-x:hidden}
+body::after{display:none}
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:700;letter-spacing:-.03em;line-height:1}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+:focus-visible{outline:3px solid var(--butter);outline-offset:3px}
+.wrap{
+  max-width:1120px;
+  margin:0 auto;
+  padding:0 48px;
+  background:var(--paper);
+  background-image:linear-gradient(to bottom,transparent 27px,rgba(89,80,66,.075) 28px);
+  background-size:100% 28px;
+  color:var(--ink);
+  box-shadow:none;
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:12px;top:-60px;background:var(--butter);color:var(--ink);padding:8px 16px;border-radius:8px;z-index:200;font-weight:700}
+.skip:focus{top:12px}
+/* muncul saat discroll (hanya jika JS aktif) */
+.js .rv{opacity:0;translate:0 26px;transition:opacity .6s var(--d,0s),translate .6s var(--d,0s) cubic-bezier(.2,1,.3,1)}
+.js .rv.in{opacity:1;translate:0 0}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.js .rv{opacity:1;translate:0 0}}
