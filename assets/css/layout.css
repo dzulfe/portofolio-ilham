@@ -761,6 +761,27 @@ body{background:var(--paper)}
 }
 @media(max-width:520px){
   .wrap{padding:0 16px}
+  #tentang{
+    scroll-margin-top:110px;
+  }
+  #tentang .title{
+    display:block;
+    margin:0 0 18px;
+    padding:4px 0 8px;
+    font-size:36px;
+    line-height:42px!important;
+    overflow:visible;
+  }
+  #tentang .title .hl{
+    background:none;
+    padding:0;
+    margin:0;
+    border-radius:0;
+    box-decoration-break:slice;
+    -webkit-box-decoration-break:slice;
+    line-height:inherit;
+    color:var(--orange);
+  }
   .nav-wrap{padding:0 8px}
   .nav{padding-left:14px}
   .nav ul .l:not(.cta){padding:7px 9px}
@@ -888,12 +909,33 @@ body{background:var(--paper)}
 
 .project-page{min-height:70vh;padding-top:50px;padding-bottom:72px}
 .project-back{
-  display:inline-block;
-  color:var(--muted);
-  font-size:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  min-height:40px;
+  padding:0 14px;
+  border:1px solid rgba(16,16,16,.16);
+  border-radius:999px;
+  background:#fffdf7;
+  color:var(--ink);
+  font-size:13px;
+  font-weight:600;
   text-decoration:none;
+  transition:background .18s,translate .18s,border-color .18s;
 }
-.project-back:hover{color:var(--orange)}
+.project-back-icon{
+  width:8px;
+  height:8px;
+  border-left:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  rotate:45deg;
+}
+.project-back:hover{
+  translate:0 -2px;
+  border-color:var(--ink);
+  background:var(--butter);
+}
+.project-back:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 .project-heading{
   max-width:820px;
   padding:64px 0 36px;
@@ -1072,4 +1114,141 @@ body{background:var(--paper)}
   opacity:.75;
   rotate:-8deg;
   filter:drop-shadow(8px 8px 0 rgba(0,0,0,.18));
+}
+
+/* Halaman Karya: tata ulang khusus agar fokus ke daftar proyek */
+body[data-page="karya"] .page-head{
+  padding:48px 0 28px;
+  gap:10px;
+}
+body[data-page="karya"] .page-head h1{
+  font-size:clamp(72px,15vw,180px);
+  line-height:.9;
+  color:var(--ink);
+  text-shadow:4px 4px 0 var(--butter);
+}
+body[data-page="karya"] .page-spark{
+  filter:drop-shadow(2px 2px 0 var(--ink));
+  background:var(--orange);
+}
+body[data-page="karya"] .page-head p{
+  max-width:62ch;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.55;
+}
+body[data-page="karya"] .tabs{
+  margin-bottom:12px;
+  padding:6px 6px 14px;
+  gap:6px;
+  border-bottom:0;
+  align-items:center;
+}
+body[data-page="karya"] .tab{
+  min-height:44px;
+  padding:10px 15px;
+  border:1px solid rgba(16,16,16,.18);
+  border-radius:999px;
+  background:var(--paper);
+  font-family:var(--f-body);
+  font-size:12px;
+  line-height:1.2;
+  letter-spacing:.02em;
+  text-transform:none;
+  translate:0;
+}
+body[data-page="karya"] .tab[aria-selected="true"]{
+  border-color:var(--ink);
+  background:var(--butter);
+  box-shadow:none;
+  translate:0;
+  padding-top:10px;
+}
+body[data-page="karya"] .tab sup{
+  margin-left:5px;
+  font-size:10px;
+}
+body[data-page="karya"] .panel-box{
+  min-height:0;
+  padding:14px;
+  border:1px solid rgba(16,16,16,.14);
+  border-radius:18px;
+  box-shadow:5px 5px 0 rgba(16,16,16,.10);
+}
+body[data-page="karya"] .works{
+  gap:14px;
+}
+body[data-page="karya"] .work{
+  border:1px solid var(--ink);
+  border-radius:16px;
+  box-shadow:4px 4px 0 var(--ink);
+}
+body[data-page="karya"] .work:hover{
+  translate:0 -3px;
+  box-shadow:6px 6px 0 var(--ink);
+  rotate:0;
+}
+body[data-page="karya"] .work .art{
+  aspect-ratio:16/10;
+  border-bottom:1px solid var(--ink);
+  background:#e8e4da;
+}
+body[data-page="karya"] .work .t{
+  min-height:82px;
+  padding:16px;
+}
+body[data-page="karya"] .work h3{
+  max-width:18ch;
+  font-size:20px;
+  line-height:1.08;
+}
+body[data-page="karya"] .work .m{
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+}
+body[data-page="karya"] .work-arrow{
+  top:12px;
+  right:12px;
+  border:1px solid rgba(16,16,16,.18);
+  background:var(--paper);
+  color:var(--ink);
+  box-shadow:2px 2px 0 var(--ink);
+}
+
+@media(max-width:899px){
+  body[data-page="karya"] .works{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:520px){
+  body[data-page="karya"] .page-head{
+    padding:36px 0 22px;
+  }
+  body[data-page="karya"] .page-head h1{
+    font-size:72px;
+  }
+  body[data-page="karya"] .page-head p{
+    font-size:14px;
+  }
+  body[data-page="karya"] .tabs{
+    margin-inline:-2px;
+  }
+  body[data-page="karya"] .tab{
+    flex:none;
+  }
+  body[data-page="karya"] .panel-box{
+    padding:9px;
+  }
+  body[data-page="karya"] .works{
+    grid-template-columns:1fr;
+  }
+  body[data-page="karya"] .work .t{
+    min-height:76px;
+  }
+  body[data-page="karya"] .work h3{
+    font-size:19px;
+  }
 }
